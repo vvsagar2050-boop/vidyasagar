@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine 💖</title>
+<title>Fun Valentine Page 💖</title>
 <style>
   body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #ffe6ea; /* First page background color */
+    background: #ffe6ea; /* First page light pink */
     font-family: Arial, sans-serif;
     text-align: center;
     transition: background 0.5s ease;
@@ -17,10 +17,12 @@
     margin: 0;
   }
 
-  h1 {
-    color: #e6005c;
-    z-index: 2;
+  #mainContent {
     position: relative;
+    z-index: 2;
+    color: #e6005c;
+    font-size: 22px;
+    line-height: 1.5;
   }
 
   .buttons {
@@ -47,19 +49,15 @@
     background: #cccccc;
     position: absolute;
   }
-  #text-clr{
-    color:#FFFF00;
-    line-height:1.4;
-  }
 
-  /* Background image container for after Yes click */
+  /* Background image div for after Yes click */
   #bgImage {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img/p2.jpg') no-repeat center center;
+    background: url('img/p1.jpg') no-repeat center center;
     background-size: cover;
     filter: blur(5px);
     z-index: 1;
@@ -71,8 +69,7 @@
 <body>
 
 <div id="mainContent">
-  <h1>Hloo Hai....Padhu 💕<br>Will you be my Valentine?</h1>
-  <h2> firstuu neeku istam ledhu kaaabatti No click chey <h2>
+  No click chey siriii....click avvatledhaaa ithe yes click chey
   <div class="buttons">
     <button id="yes" onclick="yesClicked()">Yes 💖</button>
     <button id="no" onmouseover="moveNo()">No 😜</button>
@@ -94,28 +91,13 @@ function yesClicked() {
   // Show the background image
   document.getElementById('bgImage').style.opacity = 1;
 
-  // Change only the main content, keep the background div intact
+  // Change only the main content text
   document.getElementById('mainContent').innerHTML = `
-      <h1 id="text-clr">
-  Anjaneyudi balam.... anna maaata javadaatani laxmanudu..... ichina maata kosam sainyanni ventesukochina sugreevudu.... veelandarini ventesukuni seetha kosam antha dooram velladu raamudu...... Veellu yevaru lekapoina naa seetha kosam yentha dooram ina velthanu.....<br><br>
-  Please nuv naa seetha vi avuthava&nbsp;🤞....<br>
-  Happy Valentine’s Day 💐
-</h1>
-
-
+    Hloo hai siriii paapa. naaku padhu dhi oka pic kaavali.<br>
+    Neeku ivvali anipistene ivvu ledhu ante light parledhu.
   `;
 }
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
