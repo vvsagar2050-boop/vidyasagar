@@ -14,6 +14,7 @@
     text-align: center;
     transition: background 0.5s ease;
     overflow: hidden;
+    margin: 0;
   }
 
   h1 {
@@ -55,8 +56,8 @@
     width: 100%;
     height: 100%;
     background: url('img/p1.jpg') no-repeat center center;
-background-size: cover;
-filter: blur(5px);
+    background-size: cover;
+    filter: blur(5px);
     z-index: 1;
     opacity: 0;
     transition: opacity 1s ease;
@@ -65,7 +66,7 @@ filter: blur(5px);
 </head>
 <body>
 
-<div>
+<div id="mainContent">
   <h1>Padhu 💕<br>Will you be my Valentine?</h1>
   <div class="buttons">
     <button id="yes" onclick="yesClicked()">Yes 💖</button>
@@ -88,19 +89,15 @@ function yesClicked() {
   // Show the background image
   document.getElementById('bgImage').style.opacity = 1;
 
-  // Change the content
-  document.body.innerHTML = `
-    <div style="position: relative; z-index: 2;">
+  // Change only the main content, keep the background div intact
+  document.getElementById('mainContent').innerHTML = `
       <h1 style="color:#e6005c;">
         I la la la Padhu ❤️🥰<br>
         Happy Valentine’s Day 💐
       </h1>
-    </div>
   `;
 }
 </script>
 
 </body>
 </html>
-
-
