@@ -18,7 +18,7 @@
 
   #mainContent {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     color: #e6005c;
     font-size: 22px;
     line-height: 1.5;
@@ -49,31 +49,40 @@
     position: absolute;
   }
 
-  /* background image */
+  /* FULL SCREEN BACKGROUND IMAGE */
   #bgImage {
     position: fixed;
     inset: 0;
     background: url('img/p3.jpg') no-repeat center center;
-    background-size: contain;
-    background-color: #000;
+    background-size: cover;      /* FULL IMAGE */
     filter: blur(5px);
     z-index: 1;
     opacity: 0;
     transition: opacity 1s ease;
   }
 
-  /* LEFT aligned text container */
+  /* DARK OVERLAY FOR READABILITY */
+  #overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  /* LEFT TEXT WRAPPER */
   .afterYesWrapper {
-    width: 100vw;              /* full screen width */
-    padding-left: 40px;        /* left margin */
+    width: 100vw;
+    padding-left: 40px;
     box-sizing: border-box;
   }
 
   .afterYesText {
     color: white;
-    font-size: 16px;
+    font-size: 30px;
     line-height: 1.6;
-    text-align: left;          /* ACTUAL left align */
+    text-align: left;
     max-width: 500px;
   }
 </style>
@@ -90,6 +99,7 @@
 </div>
 
 <div id="bgImage"></div>
+<div id="overlay"></div>
 
 <script>
 function moveNo() {
@@ -101,6 +111,7 @@ function moveNo() {
 
 function yesClicked() {
   document.getElementById("bgImage").style.opacity = 1;
+  document.getElementById("overlay").style.opacity = 1;
 
   document.getElementById("mainContent").innerHTML = `
     <div class="afterYesWrapper">
