@@ -71,7 +71,7 @@
 <div id="mainContent">
   No click chey siriii....click avvatledhaaa ithe yes click chey
   <div class="buttons">
-    <button id="yes" onclick="yesClicked()">Yes 💖</button>
+    <button id="yes" onclick="yesClicked()">Yes</button>
     <button id="no" onmouseover="moveNo()">No 😜</button>
   </div>
 </div>
@@ -88,16 +88,20 @@ function moveNo() {
 }
 
 function yesClicked() {
-  // Show the background image
+  // Show the background images
   document.getElementById('bgImage').style.opacity = 1;
 
-  // Change only the main content text
+  // Change only the main content text with red color and 16px font
   document.getElementById('mainContent').innerHTML = `
-    Hloo hai siriii paapa. naaku padhu dhi oka pic kaavali.<br>
-    Neeku ivvali anipistene ivvu ledhu ante light parledhu.
+    <div style="color: red; font-size: 16px; line-height: 1.5;">
+      Hloo hai siriii paapa. naaku padhu dhi oka pic kaavali.<br>
+      Neeku ivvali anipistene ivvu ledhu ante light parledhu.
+    </div>
   `;
 }
+s
 </script>
 
 </body>
 </html>
+
