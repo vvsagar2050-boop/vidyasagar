@@ -25,22 +25,26 @@
     color: #e6005c;
   }
 
+  /* BUTTON AREA */
   .buttons {
-    margin-top: 30px;
+    margin-top: 25px;
+    display: flex;
+    gap: 12px;               /* close spacing */
+    justify-content: center;
     position: relative;
-    height: 60px;
   }
 
   button {
-    padding: 12px 25px;
+    padding: 12px 22px;
     font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
     border: none;
     position: relative;
+    touch-action: manipulation;
   }
 
-  /* page 1 buttons */
+  /* page 1 */
   .pinkBtn {
     background: #ff4d88;
     color: white;
@@ -51,7 +55,7 @@
     color: black;
   }
 
-  /* page 2 buttons (WHITE) */
+  /* page 2 */
   .whiteBtn {
     background: black;
     color: white;
@@ -70,7 +74,6 @@
     transition: opacity 1s ease;
   }
 
-  /* overlay */
   #overlay {
     position: fixed;
     inset: 0;
@@ -80,10 +83,10 @@
     transition: opacity 1s ease;
   }
 
-  /* final page text */
+  /* final text */
   .afterYesWrapper {
     width: 100vw;
-    padding-left: 40px;
+    padding-left: 30px;
     box-sizing: border-box;
   }
 
@@ -103,8 +106,12 @@
 <div id="mainContent">
   No click chey siriii....click avvatledhaaa ithe yes click chey
   <div class="buttons">
-    <button class="pinkBtn" onclick="goPage2()">Yes</button>
-    <button class="grayBtn" onmouseover="moveButton(this)">No 😜</button>
+    <button class="pinkBtn">Yes</button>
+    <button class="grayBtn"
+      onmouseover="moveButton(this)"
+      ontouchstart="moveButton(this)">
+      No 😜
+    </button>
   </div>
 </div>
 
@@ -112,10 +119,9 @@
 <div id="overlay"></div>
 
 <script>
-/* move button */
 function moveButton(btn) {
-  const x = Math.random() * 300 - 150;
-  const y = Math.random() * 200 - 100;
+  const x = Math.random() * 160 - 80;
+  const y = Math.random() * 120 - 60;
   btn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
@@ -124,7 +130,11 @@ function goPage2() {
   document.getElementById("mainContent").innerHTML = `
     Ippudu YES click chey....<br>avvatledha ithe 😜
     <div class="buttons">
-      <button class="whiteBtn" onmouseover="moveButton(this)">Yes</button>
+      <button class="whiteBtn"
+        onmouseover="moveButton(this)"
+        ontouchstart="moveButton(this)">
+        Yes
+      </button>
       <button class="whiteBtn" onclick="goPage3()">No</button>
     </div>
   `;
@@ -138,7 +148,7 @@ function goPage3() {
   document.getElementById("mainContent").innerHTML = `
     <div class="afterYesWrapper">
       <div class="afterYesText">
-        Hloo Hai sirii paaapa.....<br>
+        Hloo Hai sirii paaapa......<br>
         Kangaru padaku pics delete chestaa oka purpose kosam unchanu.<br>
         Inaa naa dagara unte safe ga untaay andhulo no tension.<br>
         Miss use chese type assal kaadhu. Pics yendhuku unchano<br>
@@ -149,9 +159,10 @@ function goPage3() {
     </div>
   `;
 }
+
+/* bind page 1 YES after load */
+document.querySelector(".pinkBtn").onclick = goPage2;
 </script>
 
 </body>
 </html>
-
-
