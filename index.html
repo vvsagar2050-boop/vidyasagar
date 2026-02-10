@@ -19,15 +19,16 @@
   #mainContent {
     position: relative;
     z-index: 3;
-    color: #e6005c;
     font-size: 22px;
     line-height: 1.5;
     text-align: center;
+    color: #e6005c;
   }
 
   .buttons {
     margin-top: 30px;
     position: relative;
+    height: 60px;
   }
 
   button {
@@ -36,6 +37,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    position: relative;
   }
 
   #yes {
@@ -46,22 +48,21 @@
 
   #no {
     background: #cccccc;
-    position: absolute;
   }
 
-  /* FULL SCREEN BACKGROUND IMAGE */
+  /* background image (page 3) */
   #bgImage {
     position: fixed;
     inset: 0;
     background: url('img/p3.jpg') no-repeat center center;
-    background-size: cover;      /* FULL IMAGE */
+    background-size: cover;
     filter: blur(5px);
     z-index: 1;
     opacity: 0;
     transition: opacity 1s ease;
   }
 
-  /* DARK OVERLAY FOR READABILITY */
+  /* dark overlay */
   #overlay {
     position: fixed;
     inset: 0;
@@ -71,7 +72,7 @@
     transition: opacity 1s ease;
   }
 
-  /* LEFT TEXT WRAPPER */
+  /* final page text */
   .afterYesWrapper {
     width: 100vw;
     padding-left: 40px;
@@ -80,10 +81,10 @@
 
   .afterYesText {
     color: white;
-    font-size: 30px;
+    font-size: 16px;
     line-height: 1.6;
     text-align: left;
-    max-width: 500px;
+    max-width: 520px;
   }
 </style>
 </head>
@@ -91,10 +92,10 @@
 <body>
 
 <div id="mainContent">
-  First No click chey....click avvatledhaaa ithe.....
+  No click chey siriii....click avvatledhaaa ithe yes click chey
   <div class="buttons">
-    <button id="yes" onclick="yesClicked()">Yes</button>
-    <button id="no" onmouseover="moveNo()">No 😜</button>
+    <button id="yes" onclick="goPage2()">Yes</button>
+    <button id="no" onmouseover="moveButton(this)">No 😜</button>
   </div>
 </div>
 
@@ -102,36 +103,43 @@
 <div id="overlay"></div>
 
 <script>
-function moveNo() {
-  const noBtn = document.getElementById("no");
+/* generic move function */
+function moveButton(btn) {
   const x = Math.random() * 300 - 150;
   const y = Math.random() * 200 - 100;
-  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  btn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-function yesClicked() {
+/* PAGE 2 */
+function goPage2() {
+  document.getElementById("mainContent").innerHTML = `
+    Ippudu YES click chey....<br>avvatledha ithe 😜
+    <div class="buttons">
+      <button id="yes2" onmouseover="moveButton(this)">Yes</button>
+      <button id="no2" onclick="goPage3()">No</button>
+    </div>
+  `;
+}
+
+/* PAGE 3 (final) */
+function goPage3() {
   document.getElementById("bgImage").style.opacity = 1;
   document.getElementById("overlay").style.opacity = 1;
 
   document.getElementById("mainContent").innerHTML = `
     <div class="afterYesWrapper">
       <div class="afterYesText">
-        Hloo Hai sirii paaapa......<br>
+        Hloo Hai sirii paaap.<br>
         Kangaru padaku pics delete chestaa oka purpose kosam unchanu.<br>
-        Inaa naa dagara unte safe ga untaay andhulo no tension. miss use<br>
-        chese type assalu kaadhu. pics yendhuku unchano cheppi appudu delete chesesta.<br>
-        naaaku padhu dhi oka pic kaavali abbaaaa.<br>
-        Neeku ivvali anipistene ivvu ledhu ante parledhu.....
+        Inaa naa dagara unte safe ga untaay andhulo no tension. Kaani delete<br>
+        chestale oka yendhuku unchano neeku cheppaka.<br>
+        Sarle naaaku padhu dhi oka pic kaavali.<br>
+        Neeku ivvali anipistene ivvu ledhu ante parledhu
       </div>
     </div>
   `;
 }
-
 </script>
 
 </body>
 </html>
-
-
-
-
